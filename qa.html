@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kings Agent - test the features</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="inner">
+    <div class="brand">Kings<span>Agent</span> QA</div>
+    <nav>
+      <a href="index.html">What it is</a>
+      <a href="qa.html" class="active">Test the features</a>
+      <a href="admin.html">Feedback (admin)</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <h1>Test every feature</h1>
+  <p class="lede">
+    Message <b>@KingsAgent</b> on KingsChat and work down this list. Use your own words. Do not copy a
+    script from anyone: how real people phrase things is what we are testing.
+  </p>
+  <p class="small">
+    Newest features are at the top. Tick a feature when you have tested it, and fill the feedback form
+    under it. Your ticks stay in this browser; the written feedback comes back to us.
+  </p>
+
+  <div class="bar">
+    <div><b id="progressText">0 of 0 tested</b></div>
+    <div class="progress"><i id="progressBar"></i></div>
+    <button class="ghost" id="resetTicks" type="button">Reset my ticks</button>
+    <button class="ghost" id="collapseAll" type="button">Close all forms</button>
+  </div>
+
+  <div id="features"></div>
+
+  <footer>
+    Ticks: your browser only (local storage). Feedback: stored on the site so the team can read it per feature.
+  </footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/firebase-config.js"></script>
+<script src="assets/features.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qa.js"></script>
+</body>
+</html>

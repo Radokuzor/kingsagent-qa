@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kings Agent QA - feedback</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="inner">
+    <div class="brand">Kings<span>Agent</span> QA</div>
+    <nav>
+      <a href="index.html">What it is</a>
+      <a href="qa.html">Test the features</a>
+      <a href="admin.html" class="active">Feedback (admin)</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <h1>Feedback by feature</h1>
+  <p class="lede">Everything the testers submitted, newest first, in the order the features sit on the test page.</p>
+  <div class="bar">
+    <div><b id="counts">loading...</b></div>
+    <div class="progress"><i id="bar"></i></div>
+    <button class="primary" id="reload" type="button">Reload</button>
+    <button class="ghost" id="copyAll" type="button">Copy all as text</button>
+    <button class="ghost" id="download" type="button">Download JSON</button>
+  </div>
+  <div id="out"></div>
+  <footer>Reads the qa_feedback collection. Open page, no password, by design.</footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/firebase-config.js"></script>
+<script src="assets/features.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/admin.js"></script>
+</body>
+</html>
