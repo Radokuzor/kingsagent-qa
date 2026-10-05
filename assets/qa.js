@@ -78,19 +78,29 @@
       "</div>";
   }
 
+  var filter = "All";
+
+  function chips() {
+    var used = [];
+    F.features.forEach(function (f) { if (used.indexOf(f.section) < 0) used.push(f.section); });
+    var all = ["All"].concat(used);
+    return "<div class='row' id='chips' style='margin:12px 0 4px'>" + all.map(function (s) {
+      return "<button type='button' class='ghost" + (s === filter ? " checked" : "") +
+        "' data-chip='" + esc(s) + "'>" + esc(s) + "</button>";
+    }).join("") + "</div>";
+  }
+
   function render() {
-    var html = "";
-    F.sections.forEach(function (sec) {
-      var items = F.features.filter(function (f) { return f.section === sec; });
-      if (!items.length) return;
-      html += "<h2>" + esc(sec) + "</h2>";
-      items.forEach(function (f) { html += card(f); });
-    });
-    host.innerHTML = html;
+    var listed = F.features.filter(function (f) { return filter === "All" || f.section === filter; });
+    host.innerHTML = chips() +
+      "<p class='small'>" + listed.length + " feature(s), newest first.</p>" +
+      listed.map(card).join("");
     refreshProgress();
   }
 
   host.addEventListener("click", function (ev) {
+    var chip = ev.target.closest("[data-chip]");
+    if (chip) { filter = chip.getAttribute("data-chip"); render(); return; }
     var tick = ev.target.closest("[data-tick]");
     if (tick) {
       var id = tick.getAttribute("data-tick");

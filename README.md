@@ -13,13 +13,14 @@ Internal QA site for the Kings Agent (@KingsAgent on KingsChat).
   project, through the public web config in `assets/firebase-config.js`. Security rules allow
   `read` and `create` on that one collection and nothing else; update and delete are denied.
   No app data is reachable from this page.
-- The features live in `assets/features.js`. **The newest feature goes at the TOP of the array.**
-  That array order is the page order. See the header comment in that file.
+- The features live in `assets/features.js`. **The list on the page is the array order, so the
+  newest feature goes at index 0 and appears at the very top of the test page.** Sections are only
+  labels and filter chips; they never reorder the list. See the header comment in that file.
 
 ## Adding a feature (the standing rule)
 
-1. Add the entry to the top of `window.KC_QA.features` in `assets/features.js`, with today's date
-   in `added`.
+1. Add the entry at the TOP of `window.KC_QA.features` in `assets/features.js`, with today's date
+   in `added`. Index 0 is the top of the page.
 2. Commit and push. GitHub Pages publishes in about a minute.
 3. Tell the tester which feature is new. Everything else on the page stays as it is.
 

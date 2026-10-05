@@ -10,6 +10,8 @@
  */
 window.KC_QA = {
   updated: "2026-10-05",
+  /* Section labels are shown on each card and as filter chips. They do NOT group the
+   * list: the list order is the features array order, so index 0 is the top of the page. */
   sections: [
     "Answers and knowledge",
     "Faith and ministry",
